@@ -14,14 +14,16 @@ Summary: Variogram modelling; simple, ordinary and universal point or block (co)
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-gstat-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-gstat-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-gstat-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-gstat-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-gstat-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-gstat-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-gstat-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-gstat-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-gstat-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-gstat-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-gstat-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-gstat-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-gstat/badges/version.svg)](https://anaconda.org/conda-forge/r-gstat)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-gstat/badges/downloads.svg)](https://anaconda.org/conda-forge/r-gstat)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--gstat-green.svg)](https://anaconda.org/conda-forge/r-gstat) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-gstat.svg)](https://anaconda.org/conda-forge/r-gstat) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-gstat.svg)](https://anaconda.org/conda-forge/r-gstat) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-gstat.svg)](https://anaconda.org/conda-forge/r-gstat) |
 
 Installing r-gstat
 ==================
