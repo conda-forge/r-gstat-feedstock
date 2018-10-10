@@ -1,5 +1,4 @@
-{% set version = '1.1-5' %}
-
+{% set version = '1.1-6' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,24 +9,27 @@ package:
 source:
   fn: gstat_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/gstat_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/gstat/gstat_{{ version }}.tar.gz
-  sha256: 039f9e4dc71e23da946ad0c0fab957c43cb1a137c9d2d2465a353a0ea873dff1
+    - {{ cran_mirror }}/src/contrib/gstat_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/gstat/gstat_{{ version }}.tar.gz
+  sha256: 4618a941a62421f31104421c9ca5a1ea4ec17c283027908244edb5e8d2e47ba5
 
 build:
   merge_build_host: True  # [win]
-  number: 1
-  script: R CMD INSTALL --build .
-  skip: True  # [win32]
+  number: 0
+  skip: true  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - r-fnn
@@ -35,9 +37,9 @@ requirements:
     - r-sp >=0.9_72
     - r-spacetime >=1.0_0
     - r-zoo
-
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
     - r-fnn
     - r-lattice
     - r-sp >=0.9_72
@@ -46,7 +48,7 @@ requirements:
 
 test:
   commands:
-    - $R -e "library('gstat')"  # [not win]
+    - $R -e "library('gstat')"           # [not win]
     - "\"%R%\" -e \"library('gstat')\""  # [win]
     - conda inspect linkages -p $PREFIX r-gstat  # [not win]
     - conda inspect objects -p $PREFIX r-gstat  # [osx]
@@ -58,7 +60,15 @@ about:
     kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram
     map plotting utility functions.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
     - jsignell
+    - johanneskoester
+    - bgruening
+    - daler
+    - jdblischak
+    - cbrueffer
+    - dbast
