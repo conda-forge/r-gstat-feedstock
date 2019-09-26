@@ -1,4 +1,4 @@
-{% set version = '2.0-2' %}
+{% set version = '2.0-3' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/gstat_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gstat/gstat_{{ version }}.tar.gz
-  sha256: 227936ae88b2568964b4fc42e4bfbe34a4e4a084622f9ea4dee38882460c0c66
+  sha256: 20a93fe6bf89221a5888de273bddf9a98187806d507cd3cd6297c2b13e7acce1
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -64,9 +64,9 @@ extra:
     - jsignell
 
 # Package: gstat
-# Version: 2.0-2
+# Version: 2.0-3
 # Title: Spatial and Spatio-Temporal Geostatistical Modelling, Prediction and Simulation
-# Authors@R: c(person(given = "Edzer",  family = "Pebesma",  role = c("aut", "cre"), email = "edzer.pebesma@uni-muenster.de", comment = c(ORCID = "0000-0001-8049-7069")), person("Benedikt", "Graeler", role = "aut"))
+# Authors@R: c(person(given = "Edzer", family = "Pebesma", role = c("aut", "cre"), email = "edzer.pebesma@uni-muenster.de", comment = c(ORCID = "0000-0001-8049-7069")), person("Benedikt", "Graeler", role = "aut"))
 # Description: Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions; supports sf and stars.
 # Depends: R (>= 2.10)
 # Imports: utils, stats, graphics, methods, lattice, sp (>= 0.9-72), zoo, spacetime (>= 1.0-0), FNN
@@ -77,8 +77,8 @@ extra:
 # BugReports: https://github.com/r-spatial/gstat/issues/
 # NeedsCompilation: yes
 # RoxygenNote: 6.1.1
-# Packaged: 2019-05-16 16:18:19 UTC; edzer
+# Packaged: 2019-09-26 13:09:08 UTC; edzer
 # Author: Edzer Pebesma [aut, cre] (<https://orcid.org/0000-0001-8049-7069>), Benedikt Graeler [aut]
 # Maintainer: Edzer Pebesma <edzer.pebesma@uni-muenster.de>
 # Repository: CRAN
-# Date/Publication: 2019-05-16 19:10:03 UTC
+# Date/Publication: 2019-09-26 14:00:02 UTC
