@@ -1,4 +1,4 @@
-{% set version = "2.0-8" %}
+{% set version = "2.0-9" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/gstat_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gstat/gstat_{{ version }}.tar.gz
-  sha256: 57cb9e8235a39379a96af0a5651c82e02fdd608375917939948c3dbf170668e8
+  sha256: 122c032c2e15388496853597ebcb5664e76cda96b164e9917ee66d1c24fba4a6
 
 build:
   merge_build_host: true  # [win]
