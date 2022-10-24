@@ -1,4 +1,4 @@
-{% set version = "2.0-9" %}
+{% set version = "2.1-0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,15 +10,14 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/gstat_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gstat/gstat_{{ version }}.tar.gz
-  sha256: 122c032c2e15388496853597ebcb5664e76cda96b164e9917ee66d1c24fba4a6
+  sha256: 57a6eb46fa601f159ace1e56ebe8928d210a62d85552a4eb5a5ca4ada48f2d6f
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
-
 
 requirements:
   build:
@@ -33,16 +32,22 @@ requirements:
     - r-base
     - r-fnn
     - r-lattice
+    - r-sf >=0.7_2
+    - r-sftime
     - r-sp >=0.9_72
-    - r-spacetime >=1.0_0
+    - r-spacetime >=1.2_8
+    - r-stars
     - r-zoo
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-fnn
     - r-lattice
+    - r-sf >=0.7_2
+    - r-sftime
     - r-sp >=0.9_72
-    - r-spacetime >=1.0_0
+    - r-spacetime >=1.2_8
+    - r-stars
     - r-zoo
 
 test:
@@ -56,29 +61,10 @@ about:
   summary: Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions; supports sf and stars.
   license_family: GPL3
   license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
     - conda-forge/r
     - jsignell
-
-# Package: gstat
-# Version: 2.0-3
-# Title: Spatial and Spatio-Temporal Geostatistical Modelling, Prediction and Simulation
-# Authors@R: c(person(given = "Edzer", family = "Pebesma", role = c("aut", "cre"), email = "edzer.pebesma@uni-muenster.de", comment = c(ORCID = "0000-0001-8049-7069")), person("Benedikt", "Graeler", role = "aut"))
-# Description: Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions; supports sf and stars.
-# Depends: R (>= 2.10)
-# Imports: utils, stats, graphics, methods, lattice, sp (>= 0.9-72), zoo, spacetime (>= 1.0-0), FNN
-# Suggests: fields, maps, mapdata, maptools, rgdal (>= 0.5.2), rgeos, sf (>= 0.7-2), stars (>= 0.3-0), xts, raster
-# License: GPL (>= 2.0)
-# URL: https://github.com/r-spatial/gstat/
-# Encoding: UTF-8
-# BugReports: https://github.com/r-spatial/gstat/issues/
-# NeedsCompilation: yes
-# RoxygenNote: 6.1.1
-# Packaged: 2019-09-26 13:09:08 UTC; edzer
-# Author: Edzer Pebesma [aut, cre] (<https://orcid.org/0000-0001-8049-7069>), Benedikt Graeler [aut]
-# Maintainer: Edzer Pebesma <edzer.pebesma@uni-muenster.de>
-# Repository: CRAN
-# Date/Publication: 2019-09-26 14:00:02 UTC
