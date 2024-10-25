@@ -1,6 +1,5 @@
 {% set version = "2.1-2" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-gstat
@@ -13,8 +12,7 @@ source:
   sha256: 26d3ebe7e1401eb1ad611b227ac8506ba834187a8979d8a0dccdef77a9a46eff
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -43,7 +41,6 @@ requirements:
     - r-zoo
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-fnn
     - r-lattice
     - r-sf >=0.7_2
