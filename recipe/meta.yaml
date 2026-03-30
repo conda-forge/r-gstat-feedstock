@@ -1,15 +1,15 @@
-{% set version = "2.1-5" %}
+{% set version = "2.1-6" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
   name: r-gstat
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
     - {{ cran_mirror }}/src/contrib/gstat_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/gstat/gstat_{{ version }}.tar.gz
-  sha256: 8530e9ffd000291c04153a757479220e3af72cad98a97a9d2614ff64901eacc6
+  sha256: f227c849800fa477f4d5608f9868c3efefc8831b5a80fa51b4122c0cb5b8dd39
 
 build:
   number: 0
@@ -72,6 +72,7 @@ about:
   home: https://github.com/r-spatial/gstat/
   license: GPL-2.0-or-later
   summary: Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions; supports sf and stars.
+  license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
