@@ -3,7 +3,7 @@
 
 package:
   name: r-gstat
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
@@ -16,7 +16,6 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
-  skip: true  # [ppc64le]
   missing_dso_whitelist:
     - '*/R.dll'        # [win]
     - '*/Rblas.dll'    # [win]
@@ -72,6 +71,7 @@ about:
   home: https://github.com/r-spatial/gstat/
   license: GPL-2.0-or-later
   summary: Variogram modelling; simple, ordinary and universal point or block (co)kriging; spatio-temporal kriging; sequential Gaussian or indicator (co)simulation; variogram and variogram map plotting utility functions; supports sf and stars.
+  license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
