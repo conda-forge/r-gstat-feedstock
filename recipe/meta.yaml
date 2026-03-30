@@ -16,6 +16,7 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  skip: true  # [ppc64le]
   missing_dso_whitelist:
     - '*/R.dll'        # [win]
     - '*/Rblas.dll'    # [win]
